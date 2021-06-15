@@ -1,0 +1,84 @@
+metadata:
+  title: Demo ntake Form
+  short title: Intake Form
+  comment: This is a prototype interview for demonstration purposes
+---
+objects:
+  - client: Individual
+---
+mandatory: True
+code: |
+  user_saw_intro
+  user_saw_profile
+---
+question: |
+  Welcome to the Demo Ntake Form
+subquestion: |
+  Please take your time to carefully fill out the form
+continue button field: user_saw_intro
+---
+question: An introduction before we begin
+subquestion: |
+  My name is Pauline Bain
+  
+  I am a graduate of the University of the West Indies and the Caribbean Graduate School of Theology (CGST) in Jamaica.  I hold a Master of Arts Degree in Counselling Psychology (CGST) and a Post Graduate Certificate in Therapeutic Play skills from Leeds Beckett University, United Kingdom.
+ 
+  For more than twenty (20) years, I have conducted marriage, family and individual counselling working with children and families, couples, adults and adolescents to help them resolve personal and relational issues.  
+
+  I am an Associate Counselling Psychologist with Family Life Ministries, an organization committed to the enhancement of the family unit.
+continue button field: user_saw_profile
+---
+include:
+  - consent_form.yml
+  - client.yml
+  - guardian.yml
+  - housework.yml
+  - challenges.yml
+  - medical_check.yml
+---
+mandatory: True
+question: |
+  End of interview!
+subquestion: |
+  % if successful_send:
+  Thank you for submitting your form, we will be in contact with you soon!
+  
+  Download a copy of your form below 
+  
+  ${ consentFile.pdf }
+  % else:
+  Oops, for some reason we could not send an e-mail to you.
+  
+  Please hold on to a copy of your interview as proof you registered
+  
+  ${consentFile.pdf}
+  % endif
+---
+attachments:
+  name: Informed Consent 
+  filename: ConsentFile.docx
+  variable name: consentFile
+  valid formats:
+    - pdf
+  docx template file: New_Informed_Consent_-Child_template.docx
+---
+attachments:
+  name: Intake Form
+  filename: IntakeForm.docx
+  variable name: clientFile
+  valid formats:
+    - pdf
+  docx template file: FLM_intake_form_for_minors_docassemble.docx
+---
+code: |
+  successful_send = send_email(to='', sender='', template=client_pass, attachments=[consentFile, clientFile])
+---
+template: client_pass
+subject: |
+  Intake form for ${client.name}
+content: |
+  Hello, ${counsellor}!
+  please see attached documents for information on the potential client
+  
+  sincerely, 
+  Incrementic

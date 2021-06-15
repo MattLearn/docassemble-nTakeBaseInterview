@@ -1,0 +1,74 @@
+mandatory: True
+code: |
+  if illness_notif == True:
+    illness_list
+  hospit_notif
+  medication
+  if phys_check == True:
+    physician_name
+    physician_contact
+  else:
+    physician_name = ' '
+    physician_contact = ' '
+  if psy_check == True:
+    psychiatrist_name
+    psychiatrist_contact
+  else:
+    psychiatrist_name = ' ' 
+    psychiatrist_contact = ' '
+  notes
+---
+question: Are there any illnesses or allergies we should know about?
+yesno: illness_notif
+---
+question: List of illness or allergies
+subquestion: Please list the medical conditions or allergies they have
+fields:
+  - please list them: illness_list
+    input type: area
+---
+question: Have they been hospitalized within the last 12 months?
+fields:
+  - no label: hospit_notif
+    input type: radio
+    choices:
+     - Yes: hospit_true
+     - No: hospit_false
+---
+question: Extra Information
+subquestion: Is there any extra information we need to know?
+fields:
+  - notes: notes
+    input type: area
+---
+question: Primary Physician
+subquestion: Does the child have a primary physician
+yesno: phys_check
+---
+question: |
+  Who is the child's primary physician?
+subquestion: | 
+  Put "none" if there isn't one
+fields:
+  - Name: physician_name
+  - phone: physician_contact
+---
+question: Primary Psychiatrist
+subquestion: Does the child have a primary psychiatrist
+yesno: psy_check
+---
+question: |
+  Who is the child's primary psychiatrist?
+subquestion: | 
+  Put "none" if there isn't one
+fields:
+  - Name: psychiatrist_name
+  - phone: psychiatrist_contact
+---
+question: List of Medications
+subquestion: |
+  please list them out here or simply type "None" if there aren't any
+fields:
+  - medication list: medication
+    input type: area
+---

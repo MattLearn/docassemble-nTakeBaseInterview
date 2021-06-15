@@ -1,0 +1,80 @@
+mandatory: True
+code: |
+  guardian
+  guardian_occupation
+  age_group
+  guardian_livingaddress
+  contact_home
+  contact_mobile
+  if contact_work:
+    contact_work
+  else:
+    contact_work = ' '
+  contact_email
+  confidential
+  if goal_first:
+    goal_first
+  else:
+    goal_first = ' '
+  if goal_second:
+    goal_second
+  else:
+    goal_second = ' '
+  if goal_third:
+    goal_third
+  else:
+    goal_third = ' '
+---
+question: Legal Guardian info
+fields:
+  - Name: guardian
+  - Occupation: guardian_occupation
+  - Age group: age_group
+    input type: dropdown
+    choices:
+      - 30 and under
+      - 31-49	
+      - 50 and over
+  - Living address: guardian_livingaddress
+---
+question: Guardian Contact
+subquestion: we assume that contact numbers are using local numbers
+fields:
+  - Home number: contact_home
+    datatype: integer
+    minlength: 7
+    maxlength: 7
+  - Work number: contact_work
+    required: false
+    minlength: 7
+    maxlength: 7
+  - Mobile number: contact_mobile
+    minlength: 7
+    maxlength: 7
+  - Email: contact_email
+    datatype: email
+validation code: |
+  contact_home = phone_number_formatted(contact_home)
+  contact_work = phone_number_formatted(contact_work)
+  contact_mobile = phone_number_formatted(contact_work)
+---
+question: Confidentiality
+subquestion: For the sake of privacy which of these contacts may we use to send confidential messages?
+field: confidential
+dropdown:
+  - Home
+  - Work
+  - Mobile
+  - Email
+---
+question: What are the main goal of counselling for the child?
+subquestion: | 
+  it's ok if you can't come up with 3 goals.
+fields:
+  - Goal 1: goal_first
+    required: false
+  - Goal 2: goal_second
+    required: false
+  - Goal 3: goal_third
+    required: false
+---

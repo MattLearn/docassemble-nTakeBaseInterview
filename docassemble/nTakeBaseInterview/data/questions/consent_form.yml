@@ -1,0 +1,68 @@
+---
+mandatory: true
+code: |
+  contract_part_one
+  contract_part_two
+  internal_permission
+  contract_part_three
+  client_signature
+  client_date
+---
+question: As a Parent/Caregiver please understand that
+subquestion: | 
+    1.  Each session lasts for fifty (50) minutes. You are urged to ensure that your child is on time for all sessions. If you find that you are unavailable to attend a scheduled appointment, it is your responsibility to cancel at least 48 hours prior to the appointment or you will be required to pay for the missed session.  Exceptions are made only in an emergency, and at my discretion.
+    
+    2.  There will be a cost of JM$4,500.00 for each session.  For online sessions, please pay this amount in advance.  For face-to-face sessions, payment should be made at the front desk of Family Life Ministries.
+    
+    3.  You agree that my providing counselling services for your child/children is not and shall not be a conflict of interest with any other affiliation I may have with you.
+    
+    4.  By giving permission for your child/children to enter into therapy with me, we have begun a helping relationship in which I commit to assist your child/children to resolve his/her/their problems. 
+    
+    5.  Please note that this is strictly a professional relationship.  Consequently, you may not invite me to social gatherings, offer gifts to me, or expect me to relate to you or your child/children in any other way than in a professional capacity.
+continue button field: contract_part_one
+---
+mandatory: true
+question: |
+  As a Parent/Caregiver please understand that continued:
+subquestion: |
+    6.  When I provide therapy for your child/children, your signature on this document indicates your agreement to preserve absolute client confidentiality, not disclose details of the counselling to anyone without my consent and your consent, and not to subpoena me or my records relating to any counselling provided.
+    
+    7.  Please arrange for your child/children to have a thorough physical examination within a few weeks of the start of therapy, if the last one was more than twelve (12) months ago.
+    
+    8.  The initial stages or early sessions of therapy are sometimes difficult and uncomfortable for most persons.  If at any time during therapy, you or your child develop negative or positive feelings towards me, please let me know so that we can discuss them openly.  There is always the possibility of referral to another therapist.
+    
+    9.  Please turn off your cellular telephones and all electronic devices that are not needed for the session(s).
+    
+    10.  For face-to-face sessions, no weapons of any kind (guns, knives, ice-picks, scissors) should be taken into the counselling room.
+continue button field: contract_part_two
+---
+mandatory: true
+question: As a counsellor
+subquestion: |
+  From time to time, I may have to consult with other professionals regarding therapy (in which case, your identity and your child’s/children’s will be kept confidential).
+  
+  Do I have your permission to do so?
+yesno: internal_permission
+---
+mandatory: true
+question: As a counsellor cntd.
+subquestion: |
+  11.  You and your child/children have a right to confidentiality by law. Therefore I will not reveal to any other person what you or your child have said to me without your written consent, except in the case that :
+    
+      a.  you initiate a lawsuit against someone and the Court orders that I make disclosures about you and your child.
+    
+      b.  in my judgment, from information you share with me, I believe your child is a danger to him/herself or to someone else (which may lead to a criminal offence).
+  
+      c.  your child/children is/are at risk of abuse.  
+
+  12.  Therapy for your child/children will include a treatment plan and evaluation which I will discuss with you periodically.
+continue button field: contract_part_three
+---
+question: Consent Verification
+subquestion: |
+  Having read through the previous points if you agree to the above conditions please put your signature below and press continue when done
+signature: client_signature
+---
+code:
+  client_date = today()
+---

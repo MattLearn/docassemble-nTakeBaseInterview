@@ -1,0 +1,57 @@
+objects:
+  - client: Individual
+---
+mandatory: True
+code: |
+  client.name.first
+  client.name.last
+  client.livingaddress
+  gender
+  client.birthdate
+  if religous == "rel_pos":
+    religion
+  else:
+    religion = ' '
+  client.school
+  client.grade
+  counsellor = "Dr. Bain"
+  current_age = client.age_in_years()
+  filedate = today()
+---
+question: |
+  Tell us about the child
+fields:
+  - First Name: client.name.first
+  - Last Name: client.name.last
+  - Living Address: client.livingaddress
+  - Gender: gender
+    input type: radio
+    choices:
+      - Male: male
+      - Female: female
+---
+question: |
+  When was the client born?
+fields:
+  - Date of Birth: client.birthdate
+    datatype: date
+    default: |
+      ${ today().minus(years=16) }
+---
+question: Do they have any religious affiliations?
+fields:
+  - no label: religous
+    input type: radio
+    choices:
+      - Yes: rel_pos
+      - No: rel_neg
+  - religion and denomination: religion
+    show if:
+      variable: religous
+      is: rel_pos
+---
+question: What school do they attend?
+fields:
+  - School: client.school
+  - Grade: client.grade
+---

@@ -1,0 +1,121 @@
+mandatory: True
+code: |
+  interpersonal_difficulty
+  family_difficulty
+  behaviour_difficulty
+  addiction_difficulty
+  other_difficulty
+  problem_start
+  other_consult
+---
+question: Do they have difficulty gettling along with people?
+fields:
+  - no label: interpersonal_difficulty
+    datatype: checkboxes
+    choices:
+      - Family Members
+      - Teachers
+      - School Mates
+      - Friends
+    none of the above: True
+---
+question: Do they have conflicts within family?
+fields:
+  - no label: family_difficulty
+    datatype: checkboxes
+    choices:
+      - Family Members
+      - Relatives
+      - Separation/Divorce
+      - Custody
+      - Blended Family issues
+      - Parenting Issues
+      - Child Care
+      - Conflict with Parent/Guardian
+      - Other
+    none of the above: True
+---
+question: Do they have negative attitude/behaviours
+fields:
+  - no label: behaviour_difficulty
+    datatype: checkboxes
+    choices:
+      - Disobedience
+      - Fear of authority
+      - Stubbornness
+      - Mood Swings/Depression
+      - Anger out of control
+      - Poor self-confidence	
+      - Low self esteem
+      - Anxiety / Panic attacks
+      - Wetting bed
+      - Soiling underwear
+      - Drug abuse
+      - Inappropriate Sexual Behaviour
+      - Self harm
+      - Impulse control
+      - Eating disorder
+      - Phobias / Fears
+      - Gender identity
+      - Stress management
+      - Abuse / trauma
+      - Behaving older than stated age
+      - Thoughts of suicide	
+      - Suicide attempts	
+    none of the above: False   
+---
+question: Do they suffer from an addiction?
+fields:
+  - no label: addiction_difficulty
+    datatype: checkboxes
+    choices:
+      - Pornography
+      - Drugs
+      - Alcohol
+      - Gambling
+      - Sex
+      - Other
+    none of the above: True
+---
+question: Do they have other issues
+fields:
+  - no label: other_difficulty
+    datatype: checkboxes
+    choices:
+      - Medical/Health
+      - Educational
+      - Spiritual
+      - Legal
+      - Other
+    none of the above: True
+---
+question: When did the problems begin?
+fields:
+  - no label: problem_start
+    input type: radio
+    choices:
+      - 1-7 days ago
+      - 1-6 Weeks ago
+      - 6 weeks-6 months ago
+      - 6 months-1 year ago
+      - Over 1 year ago
+---
+question: Has the child seen anyone else about these problems
+fields:
+  - no label: other_consult
+    input type: radio
+    choices:
+      - yes: consult_true
+      - no: consult_false
+  - Who was it?: other_consultant
+    show if:
+      variable: other_consult
+      is: consult_true
+  - What suggestions did they?: external_notes
+    show if:
+      variable: other_consult
+      is: consult_true
+  - What was your response to the suggestions?: external_reaction
+    show if:
+      variable: other_consult
+      is: consult_true

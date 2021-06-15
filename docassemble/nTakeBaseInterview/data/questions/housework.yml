@@ -1,0 +1,46 @@
+mandatory: True
+code: |
+  referral
+  if first_time_check == False:
+    last_contact
+  else:
+    last_contact = ' '
+  followup_notice
+  if legal_check == True:
+    report_check
+---
+question: Who referred you to us?
+fields: 
+  - no label: referral 
+    datatype: checkboxes
+    choices:
+      - Self
+      - Parent
+      - Relative
+      - Pastor
+      - Friend
+      - School
+      - Church Leader
+      - Psychiatrist
+      - Doctor
+      - Other
+    none of the above: False
+---
+question: Is this your first time using our services?
+yesno: first_time_check
+---
+question: what year did you last work with us?
+fields:
+  - year: last_contact
+---
+question: May we contact you 3 months after the final session?
+yesno: followup_notice
+---
+question: |
+  Are you required by a Court of Law to receive counselling for your child/children as part of a legal proceeding?
+yesno: legal_check
+---
+question: is a report required after therapy?
+subquestion: this may attract additional charges
+yesno: report_check
+---

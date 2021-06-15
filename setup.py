@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.nTakeBaseInterview',
       version='1.0.5',
       description=('An interview for a counselling onboarding'),
-      long_description='# docassemble.FLMBaseInterview\r\n\r\nAn interview for a counselling onboarding\r\n\r\n## Author\r\n\r\nSystem Administrator, matthew@alteroo.com\r\n\r\n## To Do\r\n\r\nChange the intro paragraph into a modular function that allows for different counsellors introductory paragraph to be displayed based on either url or a dropdown selection before intro.\r\n\r\ntest having a page/document open in a new window\r\n',
+      long_description='# docassemble.ntakeBaseInterview\r\n\r\nAn interview for a counselling onboarding\r\n\r\n## Author\r\n\r\nSystem Administrator, matthew@alteroo.com\r\n\r\n## To Do\r\n\r\nChange the intro paragraph into a modular function that allows for different counsellors introductory paragraph to be displayed based on either url or a dropdown selection before intro.\r\n\r\ntest having a page/document open in a new window\r\n',
       long_description_content_type='text/markdown',
       author='Matthew Bailey',
       author_email='matthew@alteroo.com',

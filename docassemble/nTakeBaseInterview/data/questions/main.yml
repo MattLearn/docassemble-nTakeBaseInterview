@@ -8,27 +8,16 @@ objects:
 ---
 mandatory: True
 code: |
-  user_saw_intro
-  user_saw_profile
+  start_screen
 ---
 question: |
   Welcome to the Demo Ntake Form
 subquestion: |
   Please take your time to carefully fill out the form
-continue button field: user_saw_intro
----
-question: An introduction before we begin
-subquestion: |
-  My name is Pauline Bain
-  
-  I am a graduate of the University of the West Indies and the Caribbean Graduate School of Theology (CGST) in Jamaica.  I hold a Master of Arts Degree in Counselling Psychology (CGST) and a Post Graduate Certificate in Therapeutic Play skills from Leeds Beckett University, United Kingdom.
- 
-  For more than twenty (20) years, I have conducted marriage, family and individual counselling working with children and families, couples, adults and adolescents to help them resolve personal and relational issues.  
-
-  I am an Associate Counselling Psychologist with Family Life Ministries, an organization committed to the enhancement of the family unit.
-continue button field: user_saw_profile
+continue button field: start_screen
 ---
 include:
+  - profile.yml
   - consent_form.yml
   - client.yml
   - guardian.yml

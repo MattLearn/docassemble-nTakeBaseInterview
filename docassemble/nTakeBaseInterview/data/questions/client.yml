@@ -35,6 +35,10 @@ question: |
 fields:
   - Date of Birth: client.birthdate
     datatype: date
+    min: |
+      ${today().minus(years=18)}
+    max: |
+      ${today().minus(years=3)}
     default: |
       ${ today().minus(years=16) }
 ---
